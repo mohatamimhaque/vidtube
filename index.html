@@ -1,0 +1,41 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  
+</head>
+<body>
+
+<script>
+  device();
+function device(){
+var updateURl;
+const currentURL = window.location.href;
+const userAgent = navigator.userAgent.toLowerCase();
+if (/mobile|android|touch|tablet/.test(userAgent)) {
+  if (currentURL.includes("/web/")) {
+     updateURl = currentURL.replace("/web/", "/m/");
+    window.location.href = updateURl;
+  }else{
+    updateURl = currentURL+'/m';
+    window.location.href = updateURl;
+  }
+}else{
+  if (currentURL.includes("/m/")) {
+     updateURl = currentURL.replace("/m/", "/web/");
+    window.location.href = updateURl;
+  }else{
+     updateURl = currentURL+'/web';
+    window.location.href = updateURl;
+  }
+}
+  
+}
+
+</script>
+  
+</body>
+</html>
