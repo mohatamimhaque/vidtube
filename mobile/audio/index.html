@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script src="assets/js/jsmediatags.min.js"></script>
+    <link rel="stylesheet" href="assets/css/google-font.css">
+    <link rel="stylesheet" href="assets/css/audio.css">
+    <script src='assets/js/jquery.js'></script>
+
+</head>
+
+<body>
+    <div id="wrapper">
+        <!-- add audio from ajax-->
+        </div>
+    </div>
+    <style>
+
+    </style>
+    <div id="miniPlayer" class=''>
+        <div class="container">
+            <div id="progressbar">
+                <div id="current_progressbar">
+
+                </div>
+            </div>
+            <audio src="" id="main_audio"></audio>
+
+            <div class="close">
+                <div></div>
+            </div>
+            <div class="player_icon">
+                <span class="material-icons">
+                    music_note
+                </span>
+            </div>
+            <div class="center">
+                <p class='audio_title'>
+                    <marquee>ghh hhh hhh gg hhh hhh</marquee>
+                </p>
+                <p class="artist">jej ndnen heheh ejjne</p>
+            </div>
+            <div class="playpause">
+                <span class="material-icons">
+                    play_arrow
+                </span>
+            </div>
+            <div class='exapand_icon'>
+                <span class="material-icons">expand_less</span>
+                </span>
+            </div>
+        </div>
+    </div>
+    <div class="expandPlayer">
+
+        <div class="container">
+
+            <audio src="" id="expand_audio"></audio>
+            <div class="top-bar">
+                <i class="material-icons expand_more">expand_more</i>
+                <span>Now Playing</span>
+                <i class="material-icons">more_horiz</i>
+            </div>
+            <div class="waveform">
+                <canvas></canvas>
+            </div>
+            <div class="song-details">
+                <p class="name">jje</p>
+                <p class="artist">jjejje</p>
+            </div>
+
+            <div class="progress-area">
+                <div class="progress-bar">
+
+                </div>
+                <div class="song-timer">
+                    <span class="current-time">0:00</span>
+                    <span class="max-duration">0:00</span>
+                </div>
+            </div>
+
+
+
+            <div class="controls">
+                <i id="repeat-plist" class="material-icons" title="Playlist looped">repeat</i>
+                <i id="prev" class="material-icons">skip_previous</i>
+                <div class="play-pause">
+                    <i class="material-icons">play_arrow</i>
+                </div>
+                <i id="next" class="material-icons">skip_next</i>
+                <i id="more-music" class="material-icons">queue_music</i>
+            </div>
+            <div class="music-list">
+                <div class="header">
+                    <div class="row">
+                        <i class="list material-icons">queue_music</i>
+                        <span>Music list</span>
+                    </div>
+                    <i id="close" class="material-icons closemoremusic">close</i>
+                </div>
+                <ul>
+                    <!-- here li list are coming from js -->
+                </ul>
+            </div>
+        </div>
+    </div>
+    <script>
+        var list = `হৃদয়স্পর্শী মরমি গজল _ Hariye Jabo Ekdin _ হারিয়ে যাবো একদিন _ Qari Abu Ray-mc.mp3///06-02-23 সিরাজগঞ্জ _ শায়খ আব্দুর রাজ্জাক বিন ইউসুফ _ Abdur Razzak Bin Yousuf.m4a///06-02-23 সিরাজগঞ্জ _ শায়খ আব্দুর রাজ্জাক বিন ইউসুফ _ Abdur Razzak Bin Yousuf.smi///07-02-23 চাপাইনবাবগঞ্জ _ শায়খ আব্দুর রাজ্জাক বিন ইউসুফ _ Abdur Razzak Bin Yo.m4a///১৬ই ডিসেম্বরের সম্পন্ন নতুন ওয়াজ│Abdur Razzak Bin Yousuf New waz 2022.m4a///2023 সালে কেয়ামতের নতুন আলামত _ shiekh abdur Razzaq bin yousuf _ Abdur Razza.m4a///2023 সালে কেয়ামতের নতুন আলামত _ shiekh abdur Razzaq bin yousuf _ Abdur Razza.smi///Sheikh Abdur Razzak Bin Yousuf new waz _ শায়খ আব্দুর রাজ্জাক বিন ইউসুফ _ Abd.m4a///অবশেষে আমি এখন দেউলিয়া !!!  শায়খ আব্দুর রাজ্জাক বিন ইউসুফ । Abdur Razzak B.m4a///আগুনের পাহাড় _ শায়খ আব্দুর রাজ্জাক বিন ইউসুফের ওয়াজ _ Abdur Razzak Bin Yousu.m4a///আড়াইহাজার নারায়ণগঞ্জ _ শায়খ আব্দুর রাজ্জাক বিন ইউসুফ _ Abdur Razzak Bin Yous.m4a///আড়াইহাজার নারায়ণগঞ্জ _ শায়খ আব্দুর রাজ্জাক বিন ইউসুফ _ Abdur Razzak Bin Yous.smi///আবু তহা আদনানের ওয়াজ শোনা নিয়ে যা বললেন মুর্শিদাবাদের ব্রাদার রাহুল - brothe.m4a///ঈমানের পরীক্ষা শুনতেই কান্না চলে আসে। Ismail Bukhari New Waz 2023। ইসমাঈল বু.m4a///উলামায়ে দেওবন্দ ইহুদি খ্রিস্টানদের দালাল নাকি আহলে হাদিসরা ব্রাদার রাহুল হো.m4a///কুকুর _ শায়খ আব্দুল্লাহ বিন আব্দুর রাজ্জাক _ Sheikh  Abdullah bin abdur razz.m4a///গতকাল রাতে রাজশাহীতে অগ্নিঝরা বক্তব্য Abdur Razzak Bin Yousuf new waz ।  আব্.m4a///জাহান্নাম।আব্দুর রাজ্জাক বিন ইউসুফ। Abdur Razzak। জামালপুরের মাটিতে বাধার সম.m4a///দাজ্জাল । দাজ্জাল ও তার গোয়েন্দার সাক্ষাৎ। আব্দুর রাজ্জাক বিন ইউসুফ । abdur.m4a///দিনাজপুরে ব্রাদার রাহুলের মাহফিলে লক্ষ মানুষের সমাগম। Br. Rahul Amin l Br. R.m4a///নতুন ওয়াজ ব্রাদার রাহুল হোসেন রুহুল আমিন _ New Bangla Waz _ Br Rahul Hossain.m4a///নতুন গবেষণা এই কথাগুলো জানা খুবই জরুরী│ Abdullah Bin Abdur Razzak new waz 20.m4a///নামাজের মারাত্মক কিছু ভুল জাতির সামনে তুলে ধরলেন। Abdur Razzak Bin Yousuf । .m4a///পিতার মাহফিলে ছেলে এসে অসাধারন আলোচনা করলেন│Abdullah Bin Abdur Razzak New wa.m4a///বউ তালাক _ শায়খ আব্দুর রাজ্জাক বিন ইউসুফ _ Abdur Razzak Bin Yousuf waz.m4a///বংশাল ঢাকায় অগ্নীঝরা বক্তব্য কবির বিন সামাদকে কঠিন ধোলাই _ Shaikh abdur razz.m4a///বিপদ থেকে বাচার ৩ টা পথ _ Shaikh Abdur Razzak Bin Yousuf _ শায়খ আব্দুর রাজ্.m4a///ব্রাদার রাহুলের বাংলাদেশের মাটিতে সেরা ওয়াজ। লক্ষ্য মানুষের সমাগম। Br Rahul .m4a///যুবকদের উদ্দেশ্যে যে আলোচনা করে বাংলাদেশ সফর শেষ করলেন ব্রাদার রাহুল। Brothe.m4a///লালমনিরহাটে ওয়াজ _ শায়খ আব্দুর রাজ্জাক বিন ইউসুফ _ Shaikh Abdur Razzak Bin Y.m4a///শালন্দার,পার্বতীপুর,দিনাজপুর _ শায়খ আব্দুর রাজ্জাক বিন ইউসুফ _ Shaikh Abdur .m4a///সত্য মিথ্যা ও জাল আমল _ শায়খ আব্দুর রাজ্জাক বিন ইউসুফ _ Shaikh Abdur Razzak .m4a///সদাই,রাঘববাড়িয়া,উল্লাহপাড়া, সিরাজগন্জ _ শায়খ আব্দুর রাজ্জাক বিন ইউসুফ _ Abdu.m4a///হিন্দু ধর্ম ছেড়ে আমি কেন মুসলমান হলাম┇ব্রাদার রাহুল হোসাইন┇Br. Rahul Hossai.m4a///`;
+        var arr = list.split('///');
+        for (let i = 0; i < 10; i++) {
+            let item = `<div class="audio_container">
+     <audio preload="metadata" src='music/waz/${arr[i]}'></audio>
+  <input type="checkbox" style="display:none" class="checkbox_artist">
+  <input type="checkbox" style="display:none" class="unique_id" value='${'jssjjsh'}'>
+    <input type="checkbox" style="display:none" class="checkbox_audio_title" value='${arr[i]}'>
+ 
+       <div class="thumbnail">
+         <span class="material-icons">
+music_note
+</span>
+       </div>
+       <div class="center">
+         <p class="audio_title">
+          ${arr[i]}
+         </p>
+         <p class="artist">
+           unknown
+         </p>
+          <input style="display:none" type="checkbox" class='link'>
+       </div>
+       <div class="icon">
+         <span></span>
+       </div>
+    </div>`;
+            if (arr[i].includes('.smi') == false) {
+                $('#wrapper').append(item)
+            }
+        }
+    </script>
+    <script src='assets/js/audio.js'></script>
+    <script>
+
+    </script>
+</body>
+
+</html>
